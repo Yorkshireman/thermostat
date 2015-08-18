@@ -21,6 +21,12 @@ describe('Theromstat', function(){
       thermostat.decreaseTemperature();
       expect(thermostat.temperature).toEqual(17);
     });
+
+    it('has a minimum temperature of 10', function() {
+      thermostat.setTemperature(10);
+      thermostat.decreaseTemperature();
+      expect(thermostat.temperature).toEqual(10);
+    });
   });
 
   describe('Power Saving mode', function() {
