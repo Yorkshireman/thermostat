@@ -13,3 +13,16 @@ document.getElementById('decrease_temperature').onclick=function() {
   thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
+var powerSavingCheckbox = document.getElementById('power_saving_checkbox');
+
+function togglePowerSaving() {
+  if(powerSavingCheckbox.checked) {
+    thermostat.turnOnPowerSaving();
+  } else {
+    thermostat.turnOffPowerSaving();
+  }
+};
+
+powerSavingCheckbox.onclick=function() {
+  togglePowerSaving();
+};

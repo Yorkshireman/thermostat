@@ -8,11 +8,23 @@
   </head>
 
   <body>
-    <main>
-      <h1>Thermostat</h1>
-      <div id="current_temperature"></div>
-      <button id="increase_temperature" class="btn btn-sm btn-danger">Turn Up</button>
-      <button id="decrease_temperature" class="btn btn-sm btn-primary">Turn Down</button>
+    <main class='container-fluid'>
+
+      <section class='center-block'>
+        <h2>Thermostat</h2>
+        <h1 id="current_temperature"></h1>
+        <button id="increase_temperature" class="btn btn-md btn-danger">Turn Up</button>
+        <button id="decrease_temperature" class="btn btn-md btn-primary">Turn Down</button>
+        <form>
+          <div class="checkbox">
+            <label>
+              <input type='checkbox' name='power_saving' id='power_saving_checkbox' checked>
+              Power Saving Mode
+            </label>
+          </div>
+        </form>
+      </section>
+
     </main>
     <script type="text/javascript" src="src/Thermostat.js"></script>
     <script type="text/javascript" src="src/app.js"></script>
