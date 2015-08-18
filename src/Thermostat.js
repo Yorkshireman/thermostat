@@ -8,8 +8,10 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.setTemperature = function(new_temperature) {
-  this.temperature = new_temperature
-  this.setTempRange(new_temperature)
+  if(new_temperature >= 10) {
+    this.temperature = new_temperature
+    this.setTempRange(new_temperature)
+  }
 };
 
 Thermostat.prototype.setTempRange = function(temperature) {
