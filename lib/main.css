@@ -1,0 +1,10 @@
+main {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35%;
+}
+
+#current_temperature {
+  font-size: 2em;
+}
