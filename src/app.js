@@ -9,25 +9,41 @@ var resetTemperatureButton = document.getElementById('reset');
 
 increaseTemperatureButton.onclick=function() {
   thermostat.increaseTemperature();
-  thermostatTemperature.innerHTML = thermostat.temperature;
-  setColour();
+  setTemperatureAndColour();
 };
 
 decreaseTemperatureButton.onclick=function() {
   thermostat.decreaseTemperature();
-  thermostatTemperature.innerHTML = thermostat.temperature;
-  setColour();
+  setTemperatureAndColour();
 };
 
 resetTemperatureButton.onclick=function() {
   thermostat.resetTemperature();
-  thermostatTemperature.innerHTML = thermostat.temperature;
-  setColour();
+  setTemperatureAndColour();
 };
 
 powerSavingCheckbox.onclick=function() {
   togglePowerSaving();
+  displayTemperature();
+};
+
+function displayTemperature() {
   thermostatTemperature.innerHTML = thermostat.temperature;
+};
+
+function setColour() {
+  if(TempRange() === "low") {
+    thermostatTemperature.style.backgroundColor = '#3FA8FF';
+  } else if(TempRange() === "medium") {
+    thermostatTemperature.style.backgroundColor = '#FFF275';
+  } else if(TempRange() === "high") {
+    thermostatTemperature.style.backgroundColor = '#FF5E1E';
+  }
+};
+
+function setTemperatureAndColour() {
+  displayTemperature();
+  setColour();
 };
 
 function togglePowerSaving() {
@@ -42,15 +58,4 @@ function TempRange() {
   return thermostat.temp_range;
 };
 
-function setColour() {
-  if(TempRange() === "low") {
-    thermostatTemperature.style.backgroundColor = '#3FA8FF';
-  } else if(TempRange() === "medium") {
-    thermostatTemperature.style.backgroundColor = '#FFF275';
-  } else if(TempRange() === "high") {
-    thermostatTemperature.style.backgroundColor = '#FF5E1E';
-  }
-};
-
-thermostatTemperature.innerHTML = thermostat.temperature;
-setColour();
+setTemperatureAndColour();
