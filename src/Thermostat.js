@@ -1,16 +1,42 @@
 var Thermostat = function() {
   const DEFAULT_TEMPERATURE = 20;
   const MINIMUM_TEMPERATURE = 10;
+  const MAXIMUM_POWER_SAVING_TEMPERATURE = 25;
+  const MAXIMUM_NON_POWER_SAVING_TEMPERATURE = 32;
+
+  this.isPowerSavingOn = null;
+  this.turnOnPowerSaving();
 
   this.temperature = DEFAULT_TEMPERATURE;
   this.minimumTemperature = MINIMUM_TEMPERATURE;
-  this.isPowerSavingOn = true;
+  this.maximumTemperature = null;
+  this.maximumPowerSavingTemperature = MAXIMUM_POWER_SAVING_TEMPERATURE;
+  this.maximumNonPowerSavingTemperature = MAXIMUM_NON_POWER_SAVING_TEMPERATURE;
+  this.setMaximumTemperature();
   this.temp_range = null;
   this.setTempRange(this.temperature);
 };
 
+Thermostat.prototype.turnOnPowerSaving = function() {
+  this.isPowerSavingOn = true;
+  this.setMaximumTemperature();
+};
+
+Thermostat.prototype.turnOffPowerSaving = function() {
+  this.isPowerSavingOn = false;
+  this.setMaximumTemperature;
+};
+
+Thermostat.prototype.setMaximumTemperature = function() {
+  if(this.isPowerSavingOn === true) {
+    this.maximumTemperature = this.maximumPowerSavingTemperature;
+  } else {
+    this.maximumTemperature = this.maximumNonPowerSavingTemperature;
+  }
+};
+
 Thermostat.prototype.setTemperature = function(new_temperature) {
-  if(new_temperature >= this.minimumTemperature) {
+  if(new_temperature >= this.minimumTemperature && new_temperature <= this.maximumTemperature) {
     this.temperature = new_temperature
     this.setTempRange(new_temperature)
   }

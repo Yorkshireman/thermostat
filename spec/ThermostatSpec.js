@@ -32,7 +32,27 @@ describe('Theromstat', function(){
       thermostat.setTemperature(15);
       thermostat.setTemperature(9);
       expect(thermostat.temperature).toEqual(15);
-    }); 
+    });
+
+    it('has a max temperature of 25 when power saving mode is on', function() {
+      expect(thermostat.maximumTemperature).toEqual(25);
+    });
+
+    it('has a max temperature of 32 when power saving mode is off', function() {
+      thermostat.turnOffPowerSaving();
+      expect(thermostat.maximumTemperature).toEqual(32);
+    });
+
+    it('cannot be set to above maximum temperature with power-saving on', function() {
+      thermostat.setTemperature(26);
+      expect(thermostat.temperature).toEqual(20);
+    });
+
+    it('cannot be set to above maximum temperature with power-saving off', function() {
+      thermostat.turnOffPowerSaving;
+      thermostat.setTemperature(33);
+      expect(thermostat.temperature).toEqual(20);
+    });
   });
 
   describe('Power Saving mode', function() {
