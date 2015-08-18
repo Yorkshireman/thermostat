@@ -53,6 +53,12 @@ describe('Theromstat', function(){
       thermostat.setTemperature(33);
       expect(thermostat.temperature).toEqual(20);
     });
+
+    it('can be reset to default temperature', function() {
+      thermostat.setTemperature(22);
+      thermostat.resetTemperature();
+      expect(thermostat.temperature).toEqual(20);
+    });
   });
 
   describe('Power Saving mode', function() {
