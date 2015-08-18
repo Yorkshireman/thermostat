@@ -73,6 +73,7 @@ describe('Theromstat', function(){
     });
 
     it('is red when temperature is anything else', function() {
+      thermostat.turnOffPowerSaving();
       thermostat.setTemperature(27)
       expect(thermostat.temp_range).toEqual("high");
     });
