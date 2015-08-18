@@ -1,14 +1,16 @@
 var Thermostat = function() {
   const DEFAULT_TEMPERATURE = 20;
+  const MINIMUM_TEMPERATURE = 10;
 
   this.temperature = DEFAULT_TEMPERATURE;
+  this.minimumTemperature = MINIMUM_TEMPERATURE;
   this.isPowerSavingOn = true;
   this.temp_range = null;
   this.setTempRange(this.temperature);
 };
 
 Thermostat.prototype.setTemperature = function(new_temperature) {
-  if(new_temperature >= 10) {
+  if(new_temperature >= this.minimumTemperature) {
     this.temperature = new_temperature
     this.setTempRange(new_temperature)
   }
@@ -29,7 +31,7 @@ Thermostat.prototype.increaseTemperature = function() {
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
-  if(this.temperature != 10) {
+  if(this.temperature != this.minimumTemperature) {
     this.temperature -= 1;
   }
 };
