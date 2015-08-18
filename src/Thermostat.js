@@ -21,6 +21,9 @@ var Thermostat = function() {
 Thermostat.prototype.turnOnPowerSaving = function() {
   this.isPowerSavingOn = true;
   this.setMaximumTemperature();
+  if(this.temperature > this.maximumPowerSavingTemperature) {
+    this.setTemperature(this.maximumPowerSavingTemperature);
+  }
 };
 
 Thermostat.prototype.turnOffPowerSaving = function() {

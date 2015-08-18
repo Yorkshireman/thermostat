@@ -21,6 +21,7 @@ function togglePowerSaving() {
   } else {
     thermostat.turnOffPowerSaving();
   }
+  thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
 powerSavingCheckbox.onclick=function() {

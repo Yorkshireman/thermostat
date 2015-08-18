@@ -77,6 +77,15 @@ describe('Theromstat', function(){
     it('is on by default', function() {
       expect(thermostat.isPowerSavingOn).toBe(true);
     });
+
+    describe('when off and temperature is above 25', function() {
+      it('resets temperature to 25 when switched on', function() {
+        thermostat.turnOffPowerSaving();
+        thermostat.setTemperature(30);
+        thermostat.turnOnPowerSaving();
+        expect(thermostat.temperature).toEqual(25);
+      });
+    });
   });
 
   describe('temp_range', function() {
