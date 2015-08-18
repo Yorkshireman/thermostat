@@ -67,7 +67,8 @@ Thermostat.prototype.increaseTemperature = function() {
 
 Thermostat.prototype.decreaseTemperature = function() {
   if(this.temperature != this.minimumTemperature) {
-    this.temperature -= 1;
+    var requestedTemperature = this.temperature -= 1;
+    this.setTemperature(requestedTemperature);
   }
 };
 
