@@ -58,7 +58,8 @@ Thermostat.prototype.setTempRange = function(temperature) {
 };
 
 Thermostat.prototype.increaseTemperature = function() {
-  this.temperature += 1;
+  var requestedTemperature = this.temperature + 1;
+  this.setTemperature(requestedTemperature);
 };
 
 Thermostat.prototype.decreaseTemperature = function() {

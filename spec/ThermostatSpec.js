@@ -16,10 +16,22 @@ describe('Theromstat', function(){
       expect(thermostat.temperature).toEqual(19);
     });
 
+    it('cannot be increased over maximum', function() {
+      thermostat.setTemperature(25);
+      thermostat.increaseTemperature();
+      expect(thermostat.temperature).toEqual(25);
+    });
+
     it('can be decreased', function() {
       thermostat.setTemperature(18);
       thermostat.decreaseTemperature();
       expect(thermostat.temperature).toEqual(17);
+    });
+
+    it('cannot be decreased below minimum', function() {
+      thermostat.setTemperature(10);
+      thermostat.decreaseTemperature();
+      expect(thermostat.temperature).toEqual(10);
     });
 
     it('cannot be decreased below 10 when already at 10', function() {
