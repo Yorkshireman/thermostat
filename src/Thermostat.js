@@ -13,11 +13,15 @@ Thermostat.prototype.setTemperature = function(new_temperature) {
 };
 
 Thermostat.prototype.setTempRange = function(temperature) {
-    if(temperature < 18) {
-      this.temp_range = "low";
-    } else if(temperature >= 18 && temperature < 25) {
-      this.temp_range = "medium";
-    } else {
-      this.temp_range = "high";
-    }
+  if(temperature < 18) {
+    this.temp_range = "low";
+  } else if(temperature >= 18 && temperature < 25) {
+    this.temp_range = "medium";
+  } else {
+    this.temp_range = "high";
+  }
+};
+
+Thermostat.prototype.increaseTemperature = function() {
+  this.temperature += 1;
 };

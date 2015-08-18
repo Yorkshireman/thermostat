@@ -9,6 +9,12 @@ describe('Theromstat', function(){
     it('has a default temperature of 20', function() {
       expect(thermostat.temperature).toEqual(20);
     });
+
+    it('can be increased', function() {
+      thermostat.setTemperature(18)
+      thermostat.increaseTemperature();
+      expect(thermostat.temperature).toEqual(19);
+    });
   });
 
   describe('Power Saving mode', function() {
