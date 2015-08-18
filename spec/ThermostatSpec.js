@@ -17,7 +17,7 @@ describe('Theromstat', function(){
     });
   });
 
-  describe('Colour', function() {
+  describe('temp_range', function() {
     it('is green when temperature is below 18', function() {
       thermostat.setTemperature(17);
       expect(thermostat.temp_range).toEqual("low");
