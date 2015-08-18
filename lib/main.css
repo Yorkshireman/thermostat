@@ -12,3 +12,7 @@ main section {
   position: relative;
   top: 20em;
 }
+
+#reset {
+  margin-top: 0.3em;
+}
