@@ -1,19 +1,24 @@
 var thermostat = new Thermostat();
 var thermostatTemperature = document.getElementById('current_temperature');
 
-thermostatTemperature.innerHTML = thermostat.temperature;
+var powerSavingCheckbox = document.getElementById('power_saving_checkbox');
 
-document.getElementById('increase_temperature').onclick=function() {
+var increaseTemperatureButton = document.getElementById('increase_temperature');
+var decreaseTemperatureButton = document.getElementById('decrease_temperature');
+
+increaseTemperatureButton.onclick=function() {
   thermostat.increaseTemperature();
   thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
-document.getElementById('decrease_temperature').onclick=function() {
+decreaseTemperatureButton.onclick=function() {
   thermostat.decreaseTemperature();
   thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
-var powerSavingCheckbox = document.getElementById('power_saving_checkbox');
+powerSavingCheckbox.onclick=function() {
+  togglePowerSaving();
+};
 
 function togglePowerSaving() {
   if(powerSavingCheckbox.checked) {
@@ -24,6 +29,4 @@ function togglePowerSaving() {
   thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
-powerSavingCheckbox.onclick=function() {
-  togglePowerSaving();
-};
+thermostatTemperature.innerHTML = thermostat.temperature;
