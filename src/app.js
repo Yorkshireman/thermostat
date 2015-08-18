@@ -5,6 +5,7 @@ var powerSavingCheckbox = document.getElementById('power_saving_checkbox');
 
 var increaseTemperatureButton = document.getElementById('increase_temperature');
 var decreaseTemperatureButton = document.getElementById('decrease_temperature');
+var resetTemperatureButton = document.getElementById('reset');
 
 increaseTemperatureButton.onclick=function() {
   thermostat.increaseTemperature();
@@ -13,6 +14,11 @@ increaseTemperatureButton.onclick=function() {
 
 decreaseTemperatureButton.onclick=function() {
   thermostat.decreaseTemperature();
+  thermostatTemperature.innerHTML = thermostat.temperature;
+};
+
+resetTemperatureButton.onclick=function() {
+  thermostat.resetTemperature();
   thermostatTemperature.innerHTML = thermostat.temperature;
 };
 
