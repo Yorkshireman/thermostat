@@ -32,11 +32,11 @@ function displayTemperature() {
 };
 
 function setColour() {
-  if(tempRange() === "low") {
+  if(thermostatSetting() === "low") {
     thermostatTemperature.style.backgroundColor = '#3FA8FF';
-  } else if(TempRange() === "medium") {
+  } else if(thermostatSetting() === "medium") {
     thermostatTemperature.style.backgroundColor = '#FFF275';
-  } else if(TempRange() === "high") {
+  } else if(thermostatSetting() === "high") {
     thermostatTemperature.style.backgroundColor = '#FF5E1E';
   }
 };
@@ -54,8 +54,8 @@ function togglePowerSaving() {
   }
 };
 
-function tempRange() {
-  return thermostat.tempRange();
+function thermostatSetting() {
+  return thermostat.tempRange(thermostat.temperature);
 };
 
 setTemperatureAndColour();

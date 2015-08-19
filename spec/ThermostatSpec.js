@@ -89,15 +89,15 @@ describe('Theromstat', function(){
   });
 
   describe('tempRange', function() {
-    it('is green when temperature is below 18', function() {
+    it("returns 'low' when temperature is below 18", function() {
       expect(thermostat.tempRange(17)).toEqual("low");
     });
 
-    it('is yellow when temperature is 18 or greater and below 25', function() {
+    it("returns 'medium' when temperature is 18 or greater and below 25", function() {
       expect(thermostat.tempRange(19)).toEqual("medium");
     });
 
-    it('is red when temperature is anything else', function() {
+    it("returns 'high' when temperature is anything else", function() {
       expect(thermostat.tempRange(27)).toEqual("high");
     });
   });
