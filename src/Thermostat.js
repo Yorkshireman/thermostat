@@ -1,18 +1,15 @@
 var Thermostat = function() {
-  const DEFAULT_TEMPERATURE = 20;
-  const MINIMUM_TEMPERATURE = 10;
-  const MAXIMUM_POWER_SAVING_TEMPERATURE = 25;
-  const MAXIMUM_NON_POWER_SAVING_TEMPERATURE = 32;
-
   this.isPowerSavingOn = null;
   this.turnOnPowerSaving();
 
-  this.defaultTemperature = DEFAULT_TEMPERATURE;
+  this.defaultTemperature = 20;
   this.temperature = this.defaultTemperature;
-  this.minimumTemperature = MINIMUM_TEMPERATURE;
+
+  this.minimumTemperature = 10;
   this.maximumTemperature = null;
-  this.maximumPowerSavingTemperature = MAXIMUM_POWER_SAVING_TEMPERATURE;
-  this.maximumNonPowerSavingTemperature = MAXIMUM_NON_POWER_SAVING_TEMPERATURE;
+  this.maximumPowerSavingTemperature = 25
+  this.maximumNonPowerSavingTemperature = 32;
+  
   this.setMaximumTemperature();
   this.temp_range = null;
   this.setTempRange(this.temperature);
