@@ -14,7 +14,6 @@ describe('Thermostat Javascript/jQuery', function(){
     describe('after Power Saving has been switched off and temperature set to above 25', function() {
       it('temperature is reset to 25 when Power Saving is switched back on', function() {
         $('#power_saving_checkbox').click();
-        debugger
         var i = 0;
         while (i < 6) {
           $("button#increase_temperature").click();
