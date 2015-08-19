@@ -3,12 +3,12 @@ describe('Thermostat', function(){
   beforeEach(function(){
     jasmine.getFixtures().fixturesPath = '..';
     loadFixtures('index.html');
-    // $.holdReady(false);
+    $.holdReady(false);
   });
 
   describe('Power Saving Checkbox', function() {
     it('is checked when app is started', function() {
-      expect($("<input type='checkbox' name='power_saving' id='power_saving_checkbox' checked>")).toBeChecked();
+      expect('#power_saving_checkbox').toBeChecked();
     });
 
     // describe('when temperature is above 25 and box is unchecked', function() {
