@@ -88,21 +88,17 @@ describe('Theromstat', function(){
     });
   });
 
-  describe('temp_range', function() {
+  describe('tempRange', function() {
     it('is green when temperature is below 18', function() {
-      thermostat.setTemperature(17);
-      expect(thermostat.tempRange()).toEqual("low");
+      expect(thermostat.tempRange(17)).toEqual("low");
     });
 
     it('is yellow when temperature is 18 or greater and below 25', function() {
-      thermostat.setTemperature(19)
-      expect(thermostat.tempRange()).toEqual("medium");
+      expect(thermostat.tempRange(19)).toEqual("medium");
     });
 
     it('is red when temperature is anything else', function() {
-      thermostat.turnOffPowerSaving();
-      thermostat.setTemperature(27)
-      expect(thermostat.tempRange()).toEqual("high");
+      expect(thermostat.tempRange(27)).toEqual("high");
     });
   });
 });
