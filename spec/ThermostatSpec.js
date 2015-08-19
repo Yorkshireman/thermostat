@@ -47,12 +47,12 @@ describe('Theromstat', function(){
     });
 
     it('has a max temperature of 25 when power saving mode is on', function() {
-      expect(thermostat.maximumTemperature).toEqual(25);
+      expect(thermostat.maximumTemperature()).toEqual(25);
     });
 
     it('has a max temperature of 32 when power saving mode is off', function() {
       thermostat.turnOffPowerSaving();
-      expect(thermostat.maximumTemperature).toEqual(32);
+      expect(thermostat.maximumTemperature()).toEqual(32);
     });
 
     it('cannot be set to above maximum temperature with power-saving on', function() {
@@ -91,18 +91,18 @@ describe('Theromstat', function(){
   describe('temp_range', function() {
     it('is green when temperature is below 18', function() {
       thermostat.setTemperature(17);
-      expect(thermostat.temp_range).toEqual("low");
+      expect(thermostat.tempRange()).toEqual("low");
     });
 
     it('is yellow when temperature is 18 or greater and below 25', function() {
       thermostat.setTemperature(19)
-      expect(thermostat.temp_range).toEqual("medium");
+      expect(thermostat.tempRange()).toEqual("medium");
     });
 
     it('is red when temperature is anything else', function() {
       thermostat.turnOffPowerSaving();
       thermostat.setTemperature(27)
-      expect(thermostat.temp_range).toEqual("high");
+      expect(thermostat.tempRange()).toEqual("high");
     });
   });
 });

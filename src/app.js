@@ -7,17 +7,17 @@ var increaseTemperatureButton = document.getElementById('increase_temperature');
 var decreaseTemperatureButton = document.getElementById('decrease_temperature');
 var resetTemperatureButton = document.getElementById('reset');
 
-increaseTemperatureButton.onclick=function() {
+increaseTemperatureButton.onclick = function() {
   thermostat.increaseTemperature();
   setTemperatureAndColour();
 };
 
-decreaseTemperatureButton.onclick=function() {
+decreaseTemperatureButton.onclick = function() {
   thermostat.decreaseTemperature();
   setTemperatureAndColour();
 };
 
-resetTemperatureButton.onclick=function() {
+resetTemperatureButton.onclick = function() {
   thermostat.resetTemperature();
   setTemperatureAndColour();
 };
@@ -32,7 +32,7 @@ function displayTemperature() {
 };
 
 function setColour() {
-  if(TempRange() === "low") {
+  if(tempRange() === "low") {
     thermostatTemperature.style.backgroundColor = '#3FA8FF';
   } else if(TempRange() === "medium") {
     thermostatTemperature.style.backgroundColor = '#FFF275';
@@ -54,8 +54,8 @@ function togglePowerSaving() {
   }
 };
 
-function TempRange() {
-  return thermostat.temp_range;
+function tempRange() {
+  return thermostat.tempRange();
 };
 
 setTemperatureAndColour();
