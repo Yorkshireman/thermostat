@@ -11,11 +11,21 @@ describe('Thermostat Javascript/jQuery', function(){
       expect('#power_saving_checkbox').toBeChecked();
     });
 
-    // describe('when temperature is above 25 and box is unchecked', function() {
-    //   it('resets temperature to 25 when checked', function() {
-    //     $(#power_saving_checkbox)
-    //   });
-    // });
+    describe('when temperature is above 25 and box is unchecked', function() {
+      it('resets temperature to 25 when checked', function() {
+        debugger
+        $('#power_saving_checkbox').click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $("button#increase_temperature").click();
+        $('#power_saving_checkbox').click();
+        expect('#current_temperature').toContainText('25');
+      });
+    });
   });
 
   describe('Temperature increase button', function() {
