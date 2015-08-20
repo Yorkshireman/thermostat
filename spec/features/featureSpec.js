@@ -24,7 +24,7 @@ describe('Thermostat Javascript/jQuery', function(){
       expect($('#current_temperature').css('background-color')).toEqual('rgb(255, 242, 117)')
     });
 
-    it('shoud be blue if temperature is 17', function() {
+    it('should be blue if temperature is 17', function() {
       var i = 0;
       while (i < 4) {
         $("button#decrease_temperature").click();

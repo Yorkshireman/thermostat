@@ -11,7 +11,9 @@
     <main class='container'>
 
       <section>
-        <input id='weatherbox' type='text'><button id='weatherbutton' class='btn btn-sm btn-default'>Get Weather</button>
+        <input id='weatherbox' type='text'><button id='weatherbutton' class='btn btn-xs btn-default'>Get Weather</button>
+        <p id='weather_description'>Weather in <span id='requested_city'></span> is:</p>
+        <p id='weather'></p>
         <h2>Thermostat</h2>
         <h1 id="current_temperature"></h1>
         <button id='increase_temperature' class='btn btn-md btn-danger'>Turn Up</button>
@@ -31,7 +33,6 @@
     <script type='text/javascript' src='src/jquery-1.11.3.js'></script>
     <script type="text/javascript" src="src/Thermostat.js"></script>
     <script type="text/javascript" src="src/app.js"></script>
-
 
   </body>
 </html>

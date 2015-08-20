@@ -22,6 +22,16 @@ $(document).ready(function() {
     setColourAndTemperature();
   });
 
+  $('#weatherbutton').click(function() {
+      var city = $('#weatherbox').val();
+      var weather = $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city, function(data) {
+        $('#weather_description').css('display', 'block');
+        $('#requested_city').html(city);
+        $('#weather').html(data.weather[0].description)
+      });
+  });
+
+
   function setColourAndTemperature() {
     $('#current_temperature').html(thermostat.temperature);
     setColour();
