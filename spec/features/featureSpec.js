@@ -16,8 +16,30 @@ describe('Thermostat Javascript/jQuery', function(){
       while (i < 11) {
         $("button#decrease_temperature").click();
         i = i + 1;
-      }
+      };
       expect('#current_temperature').toContainText('10');
+    });
+
+    it('temperature should be yellow when app starts', function() {
+      expect($('#current_temperature').css('background-color')).toEqual('rgb(255, 242, 117)')
+    });
+
+    it('shoud be blue if temperature is 17', function() {
+      var i = 0;
+      while (i < 4) {
+        $("button#decrease_temperature").click();
+        i = i + 1;
+      };
+      expect($('#current_temperature').css('background-color')).toEqual('rgb(63, 168, 255)');
+    });
+
+    it('should be red if temperature is 25', function() {
+      var i = 0;
+      while (i < 6) {
+        $("button#increase_temperature").click();
+        i = i +1;
+      };
+      expect($('#current_temperature').css('background-color')).toEqual('rgb(255, 94, 30)')
     });
   });
 
@@ -58,6 +80,14 @@ describe('Thermostat Javascript/jQuery', function(){
   describe('thermostatSetting function', function() {
     it("is 'medium' when app starts", function() {
       expect(thermostatSetting()).toEqual("medium");
+    });
+  });
+
+  describe('reset button', function() {
+    it("temperature will return to 20 degrees if pressed", function() {
+      $("button#increase_temperature").click();
+      $("button#reset").click();
+      expect('#current_temperature').toContainText('20');
     });
   });
 });
