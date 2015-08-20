@@ -6,6 +6,21 @@ describe('Thermostat Javascript/jQuery', function(){
     $.holdReady(false);
   });
 
+  describe('Temperature', function() {
+    it('starts at 20', function() {
+      expect('#current_temperature').toContainText('20');
+    });
+
+    it("can't go below 10", function() {
+      var i = 0;
+      while (i < 11) {
+        $("button#decrease_temperature").click();
+        i = i + 1;
+      }
+      expect('#current_temperature').toContainText('10');
+    });
+  });
+
   describe('Power Saving Checkbox', function() {
     it('is checked when app is started', function() {
       expect('#power_saving_checkbox').toBeChecked();
