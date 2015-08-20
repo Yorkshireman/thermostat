@@ -33,6 +33,13 @@ describe('Thermostat Javascript/jQuery', function(){
     });
   });
 
+  describe('Temperature decrease button', function() {
+    it('decreases the temperature when clicked', function() {
+      $("button#decrease_temperature").click();
+      expect('#current_temperature').toContainText('19');
+    });
+  });
+
   describe('thermostatSetting function', function() {
     it("is 'medium' when app starts", function() {
       expect(thermostatSetting()).toEqual("medium");
