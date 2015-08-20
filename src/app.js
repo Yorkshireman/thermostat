@@ -17,6 +17,11 @@ $(document).ready(function() {
     setColourAndTemperature();
   });
 
+  $('#power_saving_checkbox').click(function() {
+    togglePowerSaving();
+    setColourAndTemperature();
+  });
+
   function setColourAndTemperature() {
     $('#current_temperature').html(thermostat.temperature);
     setColour();
@@ -31,6 +36,14 @@ $(document).ready(function() {
     }
     if(thermostat.tempRange(thermostat.temperature) === "high") {
       $('#current_temperature').css('background-color', '#FF5E1E')
+    }
+  };
+
+  function togglePowerSaving() {
+    if($('#power_saving_checkbox').is(':checked')) {
+      thermostat.turnOnPowerSaving();
+    } else {
+      thermostat.turnOffPowerSaving();
     }
   };
 

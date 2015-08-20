@@ -61,6 +61,29 @@ describe('Thermostat Javascript/jQuery', function(){
         expect('#current_temperature').toContainText('25');
       });
     });
+
+    describe('when checked', function() {
+      it('temperature cannot be increased to more than 25', function() {
+        var i = 0;
+        while (i < 6) {
+          $("button#increase_temperature").click();
+          i = i + 1;
+        }
+        expect('#current_temperature').toContainText('25');
+      });
+    });
+
+    describe('when unchecked', function() {
+      it('temperature can be increased past 25', function() {
+        $('#power_saving_checkbox').click();
+        var i = 0;
+        while (i < 6) {
+          $("button#increase_temperature").click();
+          i = i + 1;
+        }
+        expect('#current_temperature').toContainText('26');
+      });
+    });
   });
 
   describe('Temperature increase button', function() {
@@ -74,12 +97,6 @@ describe('Thermostat Javascript/jQuery', function(){
     it('decreases the temperature when clicked', function() {
       $("button#decrease_temperature").click();
       expect('#current_temperature').toContainText('19');
-    });
-  });
-
-  describe('thermostatSetting function', function() {
-    it("is 'medium' when app starts", function() {
-      expect(thermostatSetting()).toEqual("medium");
     });
   });
 
